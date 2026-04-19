@@ -1,0 +1,8 @@
+📁 notes-app/
+│
+├── 📄 index.html       ← Main HTML page
+├── 🎨 style.css        ← All styling
+├── ⚙️  script.js        ← Frontend JavaScript
+├── 🐍 app.py           ← Python Flask backend
+├── 📄 notes_data.json  ← Auto-created data file
+└── 📖 README.md        ← Instructions
