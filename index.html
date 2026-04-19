@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notes App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>📝 My Notes</h1>
+        <p>Write, Save & Organize Your Thoughts</p>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+        <button onclick="addNote()" class="btn btn-add">➕ New Note</button>
+        <button onclick="saveAllNotes()" class="btn btn-save">💾 Save All</button>
+        <button onclick="clearAll()" class="btn btn-clear">🗑️ Clear All</button>
+        <input type="text" id="searchBox" 
+               placeholder="🔍 Search notes..." 
+               onkeyup="searchNotes()">
+        <select id="colorPicker">
+            <option value="yellow">🟡 Yellow</option>
+            <option value="green">🟢 Green</option>
+            <option value="blue">🔵 Blue</option>
+            <option value="pink">🩷 Pink</option>
+            <option value="orange">🟠 Orange</option>
+        </select>
+    </div>
+
+    <!-- Notes Count -->
+    <div class="notes-info">
+        <span id="notesCount">📌 Total Notes: 0</span>
+        <span id="savedStatus">✅ All Saved</span>
+    </div>
+
+    <!-- Notes Container -->
+    <div class="notes-container" id="notesContainer">
+        <!-- Notes will appear here -->
+    </div>
+
+    <!-- Empty Message -->
+    <div class="empty-message" id="emptyMessage">
+        <img src="https://cdn-icons-png.flaticon.com/512/4436/4436481.png" 
+             width="100" alt="empty">
+        <h2>No Notes Yet!</h2>
+        <p>Click ➕ New Note to get started</p>
+    </div>
+
+    <!-- Modal Popup -->
+    <div class="modal" id="noteModal">
+        <div class="modal-content">
+            <h2>📄 Full Note</h2>
+            <h3 id="modalTitle"></h3>
+            <p id="modalContent"></p>
+            <span id="modalDate"></span>
+            <button onclick="closeModal()" class="btn btn-save">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
