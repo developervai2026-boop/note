@@ -1,0 +1,336 @@
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ===== HEADER ===== */
+.header {
+    text-align: center;
+    color: white;
+    padding: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    animation: bounce 1s infinite alternate;
+}
+
+.header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-5px); }
+}
+
+/* ===== TOOLBAR ===== */
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-add {
+    background: linear-gradient(45deg, #00c851, #007e33);
+    color: white;
+}
+
+.btn-save {
+    background: linear-gradient(45deg, #0077b6, #023e8a);
+    color: white;
+}
+
+.btn-clear {
+    background: linear-gradient(45deg, #ff4757, #c0392b);
+    color: white;
+}
+
+.btn-delete {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    color: white;
+    padding: 5px 12px;
+    font-size: 12px;
+}
+
+.btn-pin {
+    background: linear-gradient(45deg, #ffa502, #e67e22);
+    color: white;
+    padding: 5px 12px;
+    font-size: 12px;
+}
+
+/* ===== SEARCH BOX ===== */
+#searchBox {
+    padding: 10px 20px;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 25px;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    font-size: 14px;
+    outline: none;
+    width: 200px;
+    transition: all 0.3s;
+}
+
+#searchBox::placeholder {
+    color: rgba(255,255,255,0.8);
+}
+
+#searchBox:focus {
+    background: rgba(255,255,255,0.3);
+    border-color: white;
+    width: 250px;
+}
+
+/* ===== COLOR PICKER ===== */
+#colorPicker {
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: 2px solid rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.2);
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+}
+
+/* ===== NOTES INFO ===== */
+.notes-info {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 14px;
+    padding: 0 10px 10px;
+    opacity: 0.9;
+}
+
+/* ===== NOTES CONTAINER ===== */
+.notes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 10px;
+}
+
+/* ===== SINGLE NOTE CARD ===== */
+.note-card {
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    position: relative;
+    transition: all 0.3s ease;
+    animation: slideIn 0.4s ease;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.note-card:hover {
+    transform: translateY(-8px) rotate(1deg);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Note Colors */
+.note-yellow { background: linear-gradient(135deg, #fff9c4, #ffee58); }
+.note-green  { background: linear-gradient(135deg, #c8e6c9, #66bb6a); }
+.note-blue   { background: linear-gradient(135deg, #bbdefb, #42a5f5); }
+.note-pink   { background: linear-gradient(135deg, #f8bbd0, #f48fb1); }
+.note-orange { background: linear-gradient(135deg, #ffe0b2, #ffa726); }
+
+/* ===== NOTE TITLE ===== */
+.note-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    background: transparent;
+    width: 100%;
+    outline: none;
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 2px dashed rgba(0,0,0,0.2);
+    padding-bottom: 5px;
+}
+
+/* ===== NOTE CONTENT ===== */
+.note-content {
+    flex: 1;
+    border: none;
+    background: transparent;
+    width: 100%;
+    height: 100px;
+    resize: none;
+    outline: none;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ===== NOTE FOOTER ===== */
+.note-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 11px;
+    color: #777;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 8px;
+}
+
+/* ===== NOTE ACTIONS ===== */
+.note-actions {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+/* ===== PINNED NOTE ===== */
+.pinned {
+    border: 3px solid gold;
+    box-shadow: 0 0 20px gold;
+}
+
+.pin-icon {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 24px;
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+}
+
+/* ===== WORD COUNT ===== */
+.word-count {
+    font-size: 11px;
+    color: #888;
+    text-align: right;
+    margin-top: 3px;
+}
+
+/* ===== EMPTY MESSAGE ===== */
+.empty-message {
+    text-align: center;
+    color: white;
+    padding: 50px;
+    display: none;
+}
+
+.empty-message h2 {
+    font-size: 2rem;
+    margin: 15px 0;
+}
+
+/* ===== MODAL ===== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+}
+
+.modal-content h2 {
+    color: #764ba2;
+    margin-bottom: 15px;
+}
+
+.modal-content h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.modal-content p {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    white-space: pre-wrap;
+}
+
+.modal-content span {
+    display: block;
+    color: #999;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    .header h1 { font-size: 2rem; }
+    .toolbar   { flex-direction: column; align-items: center; }
+    #searchBox { width: 100%; }
+    .notes-container {
+        grid-template-columns: 1fr;
+    }
+}
